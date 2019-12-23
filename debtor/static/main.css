@@ -1,0 +1,16 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+header{
+    text-align: center;
+    color: white;
+    background-color: dodgerblue;
+    padding: 20px;
+}
+footer{
+    color: white;
+    text-align: center;
+    background-color: dodgerblue;
+    padding: 16px;
+}
