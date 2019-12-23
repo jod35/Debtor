@@ -14,3 +14,14 @@ footer{
     background-color: dodgerblue;
     padding: 16px;
 }
+.form{
+    width: 400px;
+    margin: auto;
+    border: 1px solid rgba(0, 0, 0, 0.308);
+    border-radius: 7px;
+    padding: 20px;
+}
+.container{
+    min-height: 400px;
+    padding: 20px;
+}

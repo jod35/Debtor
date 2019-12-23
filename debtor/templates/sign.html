@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<div class="form">
+    {{ form.hidden_tag() }}
+    <h2>Sign In</h2>
+    <div class="form-group">
+        <div class="form-group">
+            <p>{{ form.name.label }}</p>
+            {{ form.name(class='form-control') }}
+        </div>
+        
+        <div class="form-group">
+            <p>{{ form.username.label }}</p>
+            {{ form.username(class='form-control') }}
+        </div>
+        
+        <div class="form-group">
+            <p>{{ form.email.label }}</p>
+            {{ form.email(class='form-control') }}
+        </div>
+
+        <div class="form-group">
+            <p>{{ form.password.label }}</p>
+            {{ form.password(class='form-control') }}
+        </div>
+
+        <div class="form-group">
+            <p>{{ form.confirm.label }}</p>
+            {{ form.confirm(class='form-control') }}
+        </div>
+        <br>
+        {{ form.submit(class='btn btn-primary') }}
+        <br>
+        <br>           
+    </div>
+</div>
+{% endblock body %}
+    
