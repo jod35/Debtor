@@ -13,3 +13,7 @@ def index():
 def create_account():
     form=RegisterForm()
     return render_template('sign.html',form=form)
+
+@app.route('/debtors/list')
+def see_lists():
+    return render_template('')

@@ -3,7 +3,6 @@ body{
     padding: 0;
 }
 header{
-    text-align: center;
     color: white;
     background-color: dodgerblue;
     padding: 20px;
@@ -15,7 +14,7 @@ footer{
     padding: 16px;
 }
 .form{
-    width: 400px;
+    width: 60% ;
     margin: auto;
     border: 1px solid rgba(0, 0, 0, 0.308);
     border-radius: 7px;
