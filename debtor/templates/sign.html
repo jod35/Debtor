@@ -1,6 +1,15 @@
 {% extends 'layout.html' %}
-
 {% block body %}
+    {% with messages= get_flashed_messages()%}    
+     {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-success">
+                <center>{{message}}</center>
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+    
 <div class="form">
     <form action="{{url_for('create_account')}}" method="post">
     {{ form.hidden_tag() }}
@@ -33,7 +42,8 @@
         <br>
         {{ form.submit(class='btn btn-primary') }}
         <br>
-        <br>           
+        <br>    
+        <small>Already Have An ACccount? <a href="{{url_for('index')}}">Login</a></small>       
     </div>
 </form>
 </div>
