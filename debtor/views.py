@@ -17,7 +17,7 @@ def index():
 
         if user and check_password_hash(user.pass_hash, password_candidate):
             login_user(user)
-            return redirect(url_for('see_lists'))
+            return redirect(url_for('user_dashboard'))
     return render_template('index.html', form=form)
 
 
@@ -49,5 +49,5 @@ def create_account():
 
 
 @app.route('/debtors/list')
-def see_lists():
+def user_dashboard():
     return render_template('lists.html')
