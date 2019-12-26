@@ -1,8 +1,8 @@
 from . import db
 from . import login_manager
+from flask_login import UserMixin
 
-
-class User(db.Model):
+class User(db.Model,UserMixin):
     id = db.Column(db.Integer(), primary_key=True)
     name = db.Column(db.String(255), nullable=False)
     username = db.Column(db.String(40), nullable=False, unique=True)

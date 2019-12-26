@@ -1,6 +1,7 @@
 {% extends 'layout.html' %}
 
 {% block body %}
+<form action="{{url_for('index')}}" method="POST">
 <div class="form">
     {{ form.hidden_tag() }}
     <h2>Sign In</h2>
@@ -22,5 +23,6 @@
         <small>Dont Have An Account? <a href="{{url_for('create_account')}}">Create One Here</a></small>
     </div>
 </div>
+</form>
 {% endblock body %}
     

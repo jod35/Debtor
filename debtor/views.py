@@ -3,11 +3,21 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from . import login_manager, db, app
 from .forms import LoginForm, RegisterForm
 from .models import User
+from flask_login import login_user, logout_user, current_user, login_required
 
 
-@app.route('/debtors')
+@app.route('/debtors', methods=['GET', 'POST'])
 def index():
     form = LoginForm()
+    if request.method == 'POST':
+        email = request.form.get('email')
+        password_candidate = request.form.get('password')
+
+        user = User.query.filter_by(email=email).first()
+
+        if user and check_password_hash(user.pass_hash, password_candidate):
+            login_user(user)
+            return redirect(url_for('see_lists'))
     return render_template('index.html', form=form)
 
 
@@ -40,4 +50,4 @@ def create_account():
 
 @app.route('/debtors/list')
 def see_lists():
-    return render_template('')
+    return render_template('lists.html')
