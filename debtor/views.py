@@ -1,7 +1,7 @@
 from flask import render_template, redirect, url_for, request, flash
 from werkzeug.security import generate_password_hash, check_password_hash
 from . import login_manager, db, app
-from .forms import LoginForm, RegisterForm
+from .forms import LoginForm, RegisterForm,DebtorCreationForm
 from .models import User
 from flask_login import login_user, logout_user, current_user, login_required
 
@@ -59,4 +59,6 @@ def logout():
 
 @app.route('/debtors/add',methods=['GET', 'POST'])
 def add_debts():
-    return render_template('adddebt.html')
+    form=DebtorCreationForm()
+    
+    return render_template('adddebt.html',form=form)
