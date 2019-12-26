@@ -1,17 +1,22 @@
 {% extends 'layout.html' %}
 {% block body %}
-    <div class="">
-        <h1>{{ current_user }}</h1>
-    </div>
+
     <div class="dash">
         <div class="left">
             <ul class="list-group">
-                <li class="list-group-item"><a href="">Debt Lists</a></li>
+                <li class="list-group-item"><a href="{{url_for('view_debts')}}">Debt Lists</a></li>
                 <li class="list-group-item"><a href="{{url_for('add_debts')}}">Add Debts</a></li>
                 <li class="list-group-item"><a href="">Unpaid Debts</a></li>
                 <li class="list-group-item"><a href="">Cleared Debts</a></li>
                 <li class="list-group-item"><a href="{{url_for('logout')}}">Log Out</a></li>
             </ul>
+        </div>
+        <div class="right">
+            <div class="jumbotron">
+                <h1>Welcome to Your Dashboard {{current_user}}!</h1>
+                <p>This is a simple Application to help with your daily Debt Record Keeping Tasks. 
+                <br> Please feel free to use it since it  is so simple to use.</p>
+            </div>
         </div>
     </div>
 {% endblock body %}

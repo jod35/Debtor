@@ -26,6 +26,7 @@ footer{
 }
 .dash{
     display: flex;
+    justify-content: space-evenly;
 }
 .list-group-item:hover{
     background-color: dodgerblue;
@@ -43,9 +44,7 @@ footer{
 .not-paid{
     color: red;
 }
-table{
-    border: 1px solid dodgerblue;
-}
+
 th{
     background-color: dodgerblue;
     color: white;

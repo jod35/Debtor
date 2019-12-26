@@ -1,0 +1,48 @@
+{% extends 'layout.html' %}
+{% block body %}
+   {% with messages =get_flashed_messages() %}
+       {% if messages %}
+           {% for message in messages %}
+               <div class="alert alert-success">
+                    {{ message }}
+               </div>
+           {% endfor %}
+       {% endif %}
+   {% endwith %}
+       
+   <div class="form">
+    <form action="{{url_for('add_debts')}}" method="post">
+        <h3>Add Debt</h3>
+        <div class="form-group">
+            <label for="name">Supplier</label>
+            <input type="text" name="s_name" id="" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="name">Date</label>
+            <input type="date" name="date_supplied" id="" class="form-control" value="{{today}}">
+        </div>
+
+        <div class="form-group">
+            <label for="name">Debt Amount</label>
+            <input type="number" name="debt_amount" id="" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="name">Amount Paid</label>
+            <input type="number" name="amount_paid" id="" class="form-control">
+        </div>
+
+       <input type="submit" value="Add Debt" class="btn btn-primary">
+            
+    </form>
+    <br>
+    <small>
+        <b>View Debts <a href="{{url_for('view_debts')}}">Here</a></b>
+        <br>
+        Go Back <a href="{{url_for('user_dashboard')}}">Home</a>
+        <br>
+       
+    </small>
+   </div>
+{% endblock body %}
+    
