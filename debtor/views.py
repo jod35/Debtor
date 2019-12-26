@@ -51,3 +51,12 @@ def create_account():
 @app.route('/debtors/list')
 def user_dashboard():
     return render_template('lists.html')
+
+@app.route('/logout')
+def logout():
+    logout_user()
+    return redirect(url_for('index'))
+
+@app.route('/debtors/add',methods=['GET', 'POST'])
+def add_debts():
+    return render_template('adddebt.html')

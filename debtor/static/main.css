@@ -27,3 +27,12 @@ footer{
 .dash{
     display: flex;
 }
+.list-group-item:hover{
+    background-color: dodgerblue;
+    
+}
+.list-group-item a:hover{
+    color: white;
+    font-weight: bolder;
+    text-decoration: none;
+}
