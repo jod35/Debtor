@@ -15,24 +15,24 @@
         <h3>Add Debt</h3>
         <div class="form-group">
             <label for="name">Supplier</label>
-            <input type="text" name="s_name" id="" class="form-control">
+            <input type="text" name="s_name" id="" class="form-control" value="{{ debt_to_update.supplier_name }}">
         </div>
         <div class="form-group">
             <label for="name">Date</label>
-            <input type="date" name="date_supplied" id="" class="form-control" value="{{today}}">
+            <input type="text" name="date_supplied" id="" class="form-control" value="{{debt_to_update.date_supplied}}" disabled>
         </div>
 
         <div class="form-group">
             <label for="name">Debt Amount</label>
-            <input type="number" name="debt_amount" id="" class="form-control">
+            <input type="number" name="debt_amount" id="" class="form-control" value="{{debt_to_update.debt_amount}}">
         </div>
 
         <div class="form-group">
             <label for="name">Amount Paid</label>
-            <input type="number" name="amount_paid" id="" class="form-control">
+            <input type="number" name="amount_paid" id="" class="form-control" value="{{debt_to_update.amount_paid}}">
         </div>
 
-       <input type="submit" value="Add Debt" class="btn btn-primary">
+       <input type="submit" value="Save Debt Details" class="btn btn-primary">
             
     </form>
     <br>

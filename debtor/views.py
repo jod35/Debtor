@@ -85,3 +85,12 @@ def view_debts():
         'debts':Debt.query.all()
     }
     return render_template('debts.html',**context)
+
+@app.route('/debtors/details/debt_<int:debt_id>')
+def debt_details(debt_id):
+    
+
+    context={
+        'debt_to_update':Debt.query.get_or_404(debt_id)
+    }
+    return render_template('details.html',**context)
