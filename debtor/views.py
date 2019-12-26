@@ -2,7 +2,7 @@ from flask import render_template, redirect, url_for, request, flash
 from werkzeug.security import generate_password_hash, check_password_hash
 from . import login_manager, db, app
 from .forms import LoginForm, RegisterForm,DebtorCreationForm
-from .models import User
+from .models import User,Debt
 from flask_login import login_user, logout_user, current_user, login_required
 from datetime import date
 
@@ -61,4 +61,18 @@ def logout():
 def add_debts():
     form=DebtorCreationForm()
     today=date.today()
+
+    if request.method == 'POST':
+        args={
+            'supplier_name':request.form.get('s_name'),
+            'date_supplied':request.form.get('date_supplied'),
+            'amount_paid':request.form.get('amount_paid'),
+            'debt_amount':request.form.get('debt_amount'),
+            'cleared':False
+        }
+
+        new_debt=Debt(**args)
+        db.session.add(new_debt)
+        db.session.commit()
+        return redirect(url_for('add_debts'))
     return render_template('adddebt.html',form=form,today=today)
