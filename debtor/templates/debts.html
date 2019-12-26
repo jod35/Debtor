@@ -1,0 +1,50 @@
+{% extends 'layout.html' %}
+{% block body %}
+  
+  {% if debts %}
+      <table class="table">
+          <thead>
+              <tr>
+                  <th>ID</th>
+                  <th>Supplier</th>
+                  <th>Date Supplied</th>
+                  <th>Debt Amount</th>
+                  <th>Amount Paid</th>
+                  <th>Balance</th>
+                  <th>Status</th>
+              </tr>
+          </thead>
+          <tbody>
+              
+              {% for d in debts %}
+                  <tr>
+                      <td>{{ d.id }}</td>
+                      <td>{{ d.supplier_name }}</td>
+                      <td>{{ d.date_supplied.strftime('%d/ %m /%Y') }}</td>
+                      <td>{{ d.debt_amount }}</td>
+                      <td>{{d.amount_paid}}</td>
+                      <td>{{d.debt_amount - d.amount_paid}}</td>
+                      <td>
+                          
+                          {% if d.cleared == True %}
+                              <div class="paid">
+                                  <b>Cleared</b>
+                              </div>
+                          {% else %}
+                            <div class="not-paid">
+                                <b>Pending</b>
+                            </div>
+                          {% endif %}
+                              
+                      </td>
+                  </tr>
+              {% endfor %}
+                  
+          </tbody>
+      </table>
+  {% else %}
+      
+  {% endif %}
+      
+{% endblock body %}
+    

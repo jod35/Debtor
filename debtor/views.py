@@ -48,7 +48,7 @@ def create_account():
     return render_template('sign.html', form=form)
 
 
-@app.route('/debtors/list')
+@app.route('/debtors/dashboard')
 def user_dashboard():
     return render_template('lists.html')
 
@@ -77,3 +77,11 @@ def add_debts():
         flash("Record Has Been Saved Successfully")
         return redirect(url_for('add_debts'))
     return render_template('adddebt.html',form=form,today=today)
+
+@app.route('/debtors/lists')
+def view_debts():
+    
+    context={
+        'debts':Debt.query.all()
+    }
+    return render_template('debts.html',**context)

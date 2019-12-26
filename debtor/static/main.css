@@ -36,3 +36,17 @@ footer{
     font-weight: bolder;
     text-decoration: none;
 }
+.paid{
+    background-color: chartreuse;
+    color: white;
+}
+.not-paid{
+    color: red;
+}
+table{
+    border: 1px solid dodgerblue;
+}
+th{
+    background-color: dodgerblue;
+    color: white;
+}
