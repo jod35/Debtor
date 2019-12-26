@@ -74,5 +74,6 @@ def add_debts():
         new_debt=Debt(**args)
         db.session.add(new_debt)
         db.session.commit()
+        flash("Record Has Been Saved Successfully")
         return redirect(url_for('add_debts'))
     return render_template('adddebt.html',form=form,today=today)
