@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 {% block body %}
    <div class="form">
-    <form action="" method="post">
+    <form action="{{url_for('add_debts')}}" method="post">
         <h3>Add Debt</h3>
         <div class="form-group">
             <label for="name">Supplier</label>
@@ -9,7 +9,7 @@
         </div>
         <div class="form-group">
             <label for="name">Date</label>
-            <input type="date" name="date_supplied" id="" class="form-control">
+            <input type="date" name="date_supplied" id="" class="form-control" value="{{today}}">
         </div>
 
         <div class="form-group">

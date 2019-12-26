@@ -4,7 +4,7 @@ from . import login_manager, db, app
 from .forms import LoginForm, RegisterForm,DebtorCreationForm
 from .models import User
 from flask_login import login_user, logout_user, current_user, login_required
-
+from datetime import date
 
 @app.route('/debtors', methods=['GET', 'POST'])
 def index():
@@ -60,5 +60,5 @@ def logout():
 @app.route('/debtors/add',methods=['GET', 'POST'])
 def add_debts():
     form=DebtorCreationForm()
-    
-    return render_template('adddebt.html',form=form)
+    today=date.today()
+    return render_template('adddebt.html',form=form,today=today)
