@@ -94,3 +94,23 @@ def debt_details(debt_id):
         'debt_to_update':Debt.query.get_or_404(debt_id)
     }
     return render_template('details.html',**context)
+
+@app.route('/delete/<int:id>',methods=['GET', 'POST'])
+def delete(id):
+    debt_to_delete=Debt.query.get_or_404(id)
+    db.session.delete(debt_to_delete)
+    db.session.commit()
+    return redirect(url_for('view_debts'))
+
+@app.route('/debt/update/<int:id>',methods=['POST'])
+def update_record(id):
+    record_to_update=User.query.get_or_404(id)
+    record_to_update.supplier_name = request.form.get('s_name')
+    record_to_update.date_supplied=request.form.get('date_supplied')
+    record_to_update.debt_amount=request.form.get('debt_amount')
+    record_to_update.amount_paid=request.form.get('amount_paid')
+
+    db.session.commit()
+    return redirect(url_for('view_debts'))
+
+    
