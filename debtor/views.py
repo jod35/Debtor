@@ -117,3 +117,10 @@ def delete(id):
     return redirect(url_for('view_debts'))
 
     
+@app.route('/cleared/<int:id>',methods=['POST'])
+def set_to_cleared(id):
+    debt_cleared=Debt.query.get_or_404(id)
+    debt_cleared.cleared =True
+
+    db.session.commit()
+    return redirect(url_for('view_debts'))

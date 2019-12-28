@@ -38,8 +38,8 @@ footer{
     text-decoration: none;
 }
 .paid{
-    background-color: chartreuse;
-    color: white;
+    color: rgb(69, 131, 7);
+    
 }
 .not-paid{
     color: red;
@@ -48,4 +48,8 @@ footer{
 th{
     background-color: dodgerblue;
     color: white;
+}
+.flex{
+    display: flex;
+    justify-content: space-evenly;
 }

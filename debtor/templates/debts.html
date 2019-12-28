@@ -33,7 +33,15 @@
                   <td>{{ d.date_supplied.strftime('%d/ %m /%Y') }}</td>
                   <td>{{ d.debt_amount }}</td>
                   <td>{{d.amount_paid}}</td>
-                  <td>{{d.debt_amount - d.amount_paid}}</td>
+                  <td>
+                      
+                      {% if d.debt_amount == d.amount_paid%}
+                          <p>0</p>
+                       {% else %}
+                          {{ d.debt_amount - d.amount_paid }}
+                      {% endif %}
+                          
+                  </td>
                   <td>
                       
                       {% if d.cleared == True %}
