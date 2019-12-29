@@ -68,7 +68,8 @@ def add_debts():
             'date_supplied':request.form.get('date_supplied'),
             'amount_paid':request.form.get('amount_paid'),
             'debt_amount':request.form.get('debt_amount'),
-            'cleared':False
+            'cleared':False,
+            'balance':(int(request.form.get('debt_amount'))-int(request.form.get('amount_paid')))
         }
 
         new_debt=Debt(**args)
@@ -104,6 +105,7 @@ def update_record(id):
     record_to_update.date_supplied=request.form.get('date_supplied')
     record_to_update.debt_amount=request.form.get('debt_amount')
     record_to_update.amount_paid=request.form.get('amount_paid')
+    record_to_update.balance=(int(request.form.get('debt_amount'))-int(request.form.get('amount_paid')))
 
     db.session.commit()
     return redirect(url_for('view_debts'))

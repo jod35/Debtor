@@ -29,6 +29,7 @@ class Debt(db.Model):
     date_supplied=db.Column(db.DateTime,default=date.today)
     debt_amount=db.Column(db.Integer(),nullable=False)
     amount_paid=db.Column(db.Integer(),nullable=False)
+    balance=db.Column(db.Integer())
     cleared=db.Column(db.Boolean)
 
     def __repr__(self):
