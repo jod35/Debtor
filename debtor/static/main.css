@@ -1,3 +1,6 @@
+*{
+    font-family;
+}
 body{
     margin: 0;
     padding: 0;
@@ -6,6 +9,9 @@ header{
     color: white;
     background-color: dodgerblue;
     padding: 20px;
+}
+header a{
+    color: white;
 }
 footer{
     color: white;
@@ -21,7 +27,7 @@ footer{
     padding: 20px;
 }
 .container{
-    min-height: 400px;
+    min-height: 500px;
     padding: 20px;
 }
 .dash{

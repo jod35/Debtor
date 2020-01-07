@@ -126,3 +126,19 @@ def set_to_cleared(id):
 
     db.session.commit()
     return redirect(url_for('view_debts'))
+
+@app.route('/debtor/cleared')
+def cleared_invoices():
+    debts=Debt.query.filter_by(cleared=True).all()
+    context={
+        'debts':debts
+    }
+    return render_template('cleared.html',**context)
+
+@app.route('/debtor/unpaid')
+def unpaid_invoices():
+    debts=Debt.query.filter_by(cleared=False).all()
+    context={
+        'debts':debts
+    }
+    return render_template('uncleared.html',**context)

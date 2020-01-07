@@ -31,8 +31,13 @@
                   <td>{{ d.id }}</td>
                   <td><a href="/debtors/details/debt_{{d.id}}">{{ d.supplier_name }}</a></td>
                   <td>{{ d.date_supplied.strftime('%d/ %m /%Y') }}</td>
-                  <td>{{ d.debt_amount }}</td>
                   <td>{{d.amount_paid}}</td>
+                  
+                  {% if d.cleared == True%}
+              <td>{{ d.debt_amount }}</td>
+
+                  {% endif %}
+                      
                   <td>{{ d.balance }}</td>
                   <td>
                       
